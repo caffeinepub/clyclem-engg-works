@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay.woff2") format("woff2");
+  font-weight: 400 800;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans.woff2") format("woff2");
+  font-weight: 200 700;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+    /* Dark industrial palette — near-black steel + warm gold accent */
+    --background: 0.12 0.018 232;
+    --foreground: 0.93 0.01 232;
+    --card: 0.16 0.022 232;
+    --card-foreground: 0.93 0.01 232;
+    --popover: 0.15 0.02 232;
+    --popover-foreground: 0.93 0.01 232;
+    --primary: 0.42 0.16 230;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.22 0.03 232;
+    --secondary-foreground: 0.85 0.01 232;
+    --muted: 0.19 0.025 232;
+    --muted-foreground: 0.58 0.04 232;
+    --accent: 0.72 0.14 65;
+    --accent-foreground: 0.12 0.02 65;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.24 0.03 232;
+    --input: 0.22 0.03 232;
+    --ring: 0.42 0.16 230;
+    --chart-1: 0.42 0.16 230;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.72 0.14 65;
+    --chart-4: 0.5 0.1 200;
+    --chart-5: 0.65 0.08 230;
+    --sidebar: 0.13 0.02 232;
+    --sidebar-foreground: 0.92 0.01 232;
+    --sidebar-primary: 0.42 0.16 230;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.22 0.04 232;
+    --sidebar-accent-foreground: 0.92 0.01 232;
+    --sidebar-border: 0.26 0.035 232;
+    --sidebar-ring: 0.42 0.16 230;
+    /* Gold token */
+    --gold: 0.72 0.14 65;
+    --gold-muted: 0.55 0.1 65;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "General Sans", system-ui, sans-serif;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Geometric grid pattern for hero overlays */
+.hero-grid-pattern {
+  background-image: linear-gradient(
+      oklch(0.42 0.16 230 / 0.07) 1px,
+      transparent 1px
+    ), linear-gradient(90deg, oklch(0.42 0.16 230 / 0.07) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* Gold shimmer text */
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    oklch(0.72 0.14 65),
+    oklch(0.85 0.12 75),
+    oklch(0.72 0.14 65)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+/* Gradient top border */
+.gradient-top-border::before {
+  content: "";
+  display: block;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    oklch(0.42 0.16 230),
+    oklch(0.72 0.14 65),
+    oklch(0.42 0.16 230)
+  );
+}
+
+/* Navbar bottom shimmer */
+.navbar-shimmer-border {
+  box-shadow: 0 1px 0 0 oklch(0.72 0.14 65 / 0.25), 0 4px 24px
+    oklch(0.12 0.018 232 / 0.8);
+}
